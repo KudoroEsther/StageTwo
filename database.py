@@ -4,6 +4,8 @@ from sqlalchemy.orm import sessionmaker
 import os
 
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./profiles.db")
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+psycopg2://")
 
 # connect_args is SQLite-specific — allows use across threads
 engine = create_engine(
