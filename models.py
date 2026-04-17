@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Float, Integer, DateTime
-from database import Base
+from database import Base # ask about app.database import Base
 
 
 class Profile(Base):
